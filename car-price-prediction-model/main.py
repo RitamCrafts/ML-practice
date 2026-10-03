@@ -51,7 +51,7 @@ x = x.drop(columns=["name"])
 
 # print("----------------------TRAIN TEST SPLIT------------------------------------")
 
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2)
 
 # print(x_train.shape)
 # print(y_train.shape)
@@ -83,13 +83,13 @@ x_test_final = hstack([x_test_numeric, x_test_encoded])
 # print(x_train_final.shape)
 # print(x_test_final.shape)
 
-#model = DecisionTreeRegressor(max_depth=30, random_state=42)
+#model = DecisionTreeRegressor(max_depth=30)
 
-#model = RandomForestRegressor(n_estimators=200,max_depth=30,random_state=42)
+#model = RandomForestRegressor(n_estimators=200,max_depth=30)
 
-model = ExtraTreesRegressor(n_estimators=200,max_depth=30,random_state=42)
+model = ExtraTreesRegressor(n_estimators=200,max_depth=30)
 
-#model = GradientBoostingRegressor(n_estimators=100,max_depth=5,random_state=42)
+#model = GradientBoostingRegressor(n_estimators=100,max_depth=5)
 
 model.fit(x_train_final, y_train)
 

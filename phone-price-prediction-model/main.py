@@ -126,7 +126,7 @@ print(y.head())
 
 print("----------------------TRAIN TEST SPLIT------------------------------------")
 
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.1,random_state=42)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.1)
 
 print(x_train.shape)
 print(y_train.shape)
@@ -164,13 +164,13 @@ print(x_train_final[:5])
 print("---------------------MODEL FITTING FINALLY------------------------")
 #model = LinearRegression()
 
-#model = DecisionTreeRegressor(max_depth=10, random_state=42)
+#model = DecisionTreeRegressor(max_depth=10)
 
-model = RandomForestRegressor(n_estimators=50,max_depth=20,random_state=42)
+model = RandomForestRegressor(n_estimators=50,max_depth=20)
 
-#model = ExtraTreesRegressor(n_estimators=200,max_depth=10,random_state=42)
+#model = ExtraTreesRegressor(n_estimators=200,max_depth=10)
 
-#model = GradientBoostingRegressor(n_estimators=100,max_depth=5,random_state=42)
+#model = GradientBoostingRegressor(n_estimators=100,max_depth=5)
 
 
 model.fit(x_train_final, y_train)
