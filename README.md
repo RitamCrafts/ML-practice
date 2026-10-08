@@ -6,7 +6,9 @@ Install **Python**, then install the required libraries:
 
 ```bash
 pip install pandas
+pip install numpy
 pip install scikit-learn
+pip install joblib
 ```
 
 ## How to Use
