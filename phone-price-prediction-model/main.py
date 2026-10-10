@@ -78,6 +78,7 @@ x["Front Camera"] = x["Front Camera"].str.extract(r"([\d.]+)").astype(float) #re
 
 # print(x["Back Camera"].unique())
 # print(x["Back Camera"].head())
+# camera_cols = ["Camera 1", "Camera 2"]
 camera_cols = ["Camera 1", "Camera 2"]
 x[camera_cols] = x["Back Camera"].str.split("+", expand=True).iloc[:, :2]
 for col in camera_cols:
