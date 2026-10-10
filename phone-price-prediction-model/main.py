@@ -78,12 +78,12 @@ x["Front Camera"] = x["Front Camera"].str.extract(r"([\d.]+)").astype(float) #re
 
 # print(x["Back Camera"].unique())
 # print(x["Back Camera"].head())
-camera_cols = ["Camera 1", "Camera 2", "Camera 3", "Camera 4"]
-x[camera_cols]=(x["Back Camera"].str.split("+", expand=True))
-for i in camera_cols:
-    x[i] = x[i].str.extract(r"([\d.]+)").astype(float)
+camera_cols = ["Camera 1", "Camera 2"]
+x[camera_cols] = x["Back Camera"].str.split("+", expand=True).iloc[:, :2]
+for col in camera_cols:
+    x[col] = x[col].str.extract(r"([\d.]+)").astype(float)
 x[camera_cols] = x[camera_cols].fillna(0)
-x=x.drop(columns=["Back Camera"])
+x = x.drop(columns=["Back Camera"])
 # print(x[camera_cols].head())
 # print(x[camera_cols].dtypes)
 
@@ -142,7 +142,6 @@ categorical_cols = [
 ]
 encoder = OneHotEncoder(handle_unknown="ignore",sparse_output=False)
 encoder.fit(x_train[categorical_cols])
-joblib.dump(encoder,"Mobiles-Dataset-Encoder.pkl")
 x_train_encoded = encoder.transform(x_train[categorical_cols])
 x_test_encoded = encoder.transform(x_test[categorical_cols])
 
@@ -206,6 +205,7 @@ print("MAE train:", mae_train)
 r2_train = r2_score(y_train["Launched Price (India)"], y_pred_train_df["Launched Price (India)"])
 print("R squared train:", r2_train)
 
-op = input("Would you like to save your model(y/n):").upper()
+op = input("Would you like to save your model and encoder(y/n):").upper()
 if op == 'Y':
     joblib.dump(model, "phone_price_model.pkl")
+    joblib.dump(encoder,"Mobiles-Dataset-Encoder.pkl")
