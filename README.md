@@ -13,7 +13,7 @@ python -m pip install pandas numpy scikit-learn joblib
 Each experiment generally contains Python files for **using** and **experimenting with** the models.
 
 ### Using Your Own Data
-Before using own data make sure to run main.py and save your own model with the last prompt to avoid issues.
+Before using own data make sure to run dev.py and save your own model with the last prompt to avoid issues.
 There is generally a file with a name such as:
 
 ```text
