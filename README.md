@@ -5,10 +5,7 @@
 Install **Python**, then install the required libraries:
 
 ```bash
-pip install pandas
-pip install numpy
-pip install scikit-learn
-pip install joblib
+python -m pip install pandas numpy scikit-learn joblib
 ```
 
 ## How to Use
@@ -16,7 +13,7 @@ pip install joblib
 Each experiment generally contains Python files for **using** and **experimenting with** the models.
 
 ### Using Your Own Data
-
+Before using own data make sure to run main.py and save your own model with the last prompt to avoid issues.
 There is generally a file with a name such as:
 
 ```text
